@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BookHunter</string>
+    <string name="heading">Using Google Books API v1</string>
+</resources>
