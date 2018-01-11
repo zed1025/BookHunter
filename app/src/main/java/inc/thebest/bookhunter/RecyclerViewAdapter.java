@@ -1,5 +1,6 @@
 package inc.thebest.bookhunter;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -22,8 +24,14 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     List<Book> bookList;
+    private Context context;
 
-    public RecyclerViewAdapter(List<Book> fetchedBooks) {
+    //You need to create method and pass context of that activity here w8
+
+
+
+    public RecyclerViewAdapter(Context context,List<Book> fetchedBooks) {
+        this.context = context;
         this.bookList = fetchedBooks;
     }
 
@@ -33,21 +41,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.book_name.setText(bookList.get(position).getmTitle());
         holder.book_author.setText(bookList.get(position).getmAuthors());
         holder.book_ISBN_13.setText(bookList.get(position).getmISBN_13());
-//        final ImageRequest imageRequest = new ImageRequest(book.getmImageLink(),
-//                new Response.Listener<Bitmap>() {
-//                    @Override
-//                    public void onResponse(Bitmap response) {
-//                        holder.book_jacket.setImageBitmap(response);
-//                    }
-//                },
-//                0, 0, ImageView.ScaleType.CENTER_CROP, null,
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        error.printStackTrace();
-//                    }
-//                });
-//        MySingleton.getInstance(this).addToRequestQueue(imageRequest);
+        //Glide.with(holder.book_jacket.getContext()).load(book.getmImageLink()).into(holder.book_jacket);
+        Picasso.with(context).load(book.getmImageLink()).into(holder.book_jacket);
     }
 
     @Override
@@ -76,4 +71,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             book_ISBN_13 = itemView.findViewById(R.id.tv_book_isbn);
         }
     }
+
+
 }

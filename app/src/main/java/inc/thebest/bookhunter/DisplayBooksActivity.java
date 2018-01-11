@@ -37,8 +37,8 @@ public class DisplayBooksActivity extends AppCompatActivity {
         //t1 = findViewById(R.id.t1);
 
         //code for RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        final RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(fetchedBooks);
+        final RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        final RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),fetchedBooks);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -66,6 +66,7 @@ public class DisplayBooksActivity extends AppCompatActivity {
                                 isbn = volumeInfo.getJSONArray("industryIdentifiers").getJSONObject(0).getString("identifier");
                                 imageL = volumeInfo.getJSONObject("imageLinks").getString("smallThumbnail");
                                 //buyL = saleInfo.getString("buyLink");
+
                                 fetchedBooks.add(new Book(title, author, isbn, imageL));
                                 recyclerViewAdapter.notifyDataSetChanged();
 
