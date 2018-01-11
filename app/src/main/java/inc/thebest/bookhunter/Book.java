@@ -12,7 +12,7 @@ public class Book {
     String mImageLink;
     String mBuyLink;
 
-    public Book(String mTitle, String mAuthors, String mPublisher, String mISBN_13, String mImageLink, String mBuyLink) {
+    public Book(String mTitle, String mAuthors, String mISBN_13, String mImageLink, String mBuyLink) {
         this.mTitle = mTitle;
         this.mAuthor = mAuthors;
         this.mPublisher = mPublisher;

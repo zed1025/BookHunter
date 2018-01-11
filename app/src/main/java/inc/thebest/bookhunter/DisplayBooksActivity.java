@@ -51,7 +51,7 @@ public class DisplayBooksActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        String title, author, isbn, imageL;
+                        String title, author, isbn, imageL, buyL;
                         try{
                             JSONArray itemsArray = response.getJSONArray("items");
                             for(int i=0; i<itemsArray.length(); i++){
@@ -65,9 +65,10 @@ public class DisplayBooksActivity extends AppCompatActivity {
                                 author = volumeInfo.getJSONArray("authors").getString(0);
                                 isbn = volumeInfo.getJSONArray("industryIdentifiers").getJSONObject(0).getString("identifier");
                                 imageL = volumeInfo.getJSONObject("imageLinks").getString("smallThumbnail");
-                                //buyL = saleInfo.getString("buyLink");
+                                buyL = saleInfo.getString("buyLink");
 
-                                fetchedBooks.add(new Book(title, author, isbn, imageL));
+                                fetchedBooks.add(new Book(title, author, isbn, imageL, buyL));
+                                //fetchedBooks.add(new Book(title, author, isbn, imageL));
                                 recyclerViewAdapter.notifyDataSetChanged();
 
 
