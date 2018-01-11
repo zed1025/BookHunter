@@ -12,6 +12,6 @@ App for searching for books using **Book Name** or **Author Name** or **Subject*
 
 [logo]: https://github.com/zed1025/BookHunter/blob/master/activity_main.png "MainActivity"
 
-![alt text][logo]
+![alt text][logo2]
 
-[logo]: https://github.com/zed1025/BookHunter/blob/master/display_books_activity.png "DisplayBooksActivity"
+[logo2]: https://github.com/zed1025/BookHunter/blob/master/display_books_activity.png "DisplayBooksActivity"
